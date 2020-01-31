@@ -1,4 +1,5 @@
 import time
+# import binary tree
 
 start_time = time.time()
 
@@ -10,12 +11,12 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-# def find_dups(nums):
 duplicates = []
-    # nums.sort()
-for i in range(len(names_1), len(names_1)):
-    if names_1 == names_2:
-        duplicates.append(names_1)
+name_2_set = set(names_2)
+
+for i in names_1:
+    if i in name_2_set:
+        duplicates.append(i)
 
 # for name_1 in names_1:
 #     for name_2 in names_2:
@@ -24,7 +25,7 @@ for i in range(len(names_1), len(names_1)):
 
 
 end_time = time.time()
-# print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
